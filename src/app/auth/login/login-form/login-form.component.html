@@ -1,0 +1,88 @@
+<article class="card card--form card--form--login">
+
+  <h2 class="text-align-center margin-bottom-medium">Log in </h2>
+
+  <form [formGroup]="loginForm"
+        autocomplete="off"
+        (ngSubmit)="login(loginForm)">
+
+    <fieldset [disabled]="httpRequestIsPending === true">
+
+      <!--Email-->
+      <div>
+        <label for="loginFormEmail">Email</label>
+        <input id="loginFormEmail"
+               class="input margin-bottom-x-small"
+               type="email"
+               [ngClass]="{'input--state-error': loginFormSubmitted && email.invalid }"
+               formControlName="email">
+        <!--Email validation messages-->
+        <small class="error-message"
+               *ngIf="loginFormSubmitted && email.hasError('required')">
+          Email is required
+        </small>
+        <small class="error-message"
+               *ngIf="loginFormSubmitted && email.hasError('email') && email.touched">
+          Please enter a valid email address
+        </small>
+      </div>
+
+      <!--Password-->
+      <div class="margin-top-medium">
+        <label for="loginFormPassword">Password</label>
+        <div class="relative-wrapper">
+          <input id="loginFormPassword"
+                 class="input input--password margin-bottom-x-small"
+                 [type]="showPassword ? 'text' : 'password'"
+                 [ngClass]="{'input--state-error': loginFormSubmitted && password.invalid }"
+                 formControlName="password">
+          <button type="button"
+                  class="button button--show-password text-align-center"
+                  *ngIf="loginForm.value.password"
+                  (click)="togglePassword($event)">Show
+          </button>
+        </div>
+        <!--Password validation messages-->
+        <small class="error-message"
+               *ngIf="loginFormSubmitted && password.hasError('required')">
+          Password is required
+        </small>
+        <small class="error-message"
+               *ngIf="loginFormSubmitted && password.hasError('minlength')">
+          Password must be at least {{password.errors.minlength.requiredLength}} characters
+        </small>
+      </div>
+
+    </fieldset>
+
+    <!--Submit button-->
+    <div class="text-align-center margin-top-medium margin-bottom-small">
+      <!--Error message-->
+      <div *ngIf="showLoginErrorMessage">
+        <p class="error-message text-align-center margin-bottom-small">Incorrect login
+          details</p>
+      </div>
+      <button type="submit"
+              class="button button--primary card--form__submit-button"
+              [disabled]="httpRequestIsPending === true">
+        <i class="icon icon--large"
+          aria-hidden="true"
+           [class.ion-ios-lock]="httpRequestIsPending === false"
+           [class.ion-ios-sync]="httpRequestIsPending === true"
+           [class.icon--loading-animation]="httpRequestIsPending === true"></i>
+        Login
+      </button>
+    </div>
+
+  </form>
+
+  <!--Forgot password link-->
+  <p class="text-align-center">
+    <small>
+      <a routerLink="/forgot-password"
+         routerLinkActive="active"
+         class="card--login-form__forgot-password-link text-link text-link--primary">Forgot password?</a>
+    </small>
+  </p>
+
+</article>

@@ -1,0 +1,121 @@
+h2 {
+  color: black;
+  margin-top: 150px;
+  margin-left: 40%;
+  font-size: 40px;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the wrapper takes at least the full height of the viewport */
+}
+
+.item-box {
+  display: flex;
+  width: 800px;
+  flex: 1;
+  height: fit-content;
+  border: 1px solid black; /* 1px black border */
+  padding: 20px; /* Optional padding inside the box */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin-left: 20%;
+  margin-bottom: 20px; /* Adjust as needed to create space for the footer */
+}
+
+.box-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Corrected typo here */
+  flex: 1; /* Allows this section to expand and fill available space */
+}
+
+.cart-item {
+  margin-top: 50px;
+  background-color: rgb(237, 236, 236);
+  width: 300px;
+  margin-left: 10%;
+  height: 400px;
+}
+
+.back-link {
+  position: relative;
+  top: 100px; /* 100px from the top of the page */
+  margin-left: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+button {
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+img {
+  width: 98%;
+  height: 200px;
+  margin-top: 10px;
+  padding-left: 2px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.counter button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.counter .quantity {
+  width: 30px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.bottom-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  margin-top: auto; /* Pushes the button to the bottom */
+  margin-left: 30%;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &.disabled-button {
+    background-color: grey;
+    cursor: not-allowed;
+    opacity: 0.5; /* Makes it look faded */
+  }
+}
+
+.total {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: auto; 
+; 
+}
+
+.empty {
+  margin-top: 10%;
+  margin-left: 30%;
+  font-size: 20px;
+  font-weight: bold;
+}

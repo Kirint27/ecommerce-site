@@ -1,0 +1,35 @@
+<div class="content-wrapper">
+  <h2>Home</h2>
+  <nav>
+    <ul>
+     <li>      <i class="fa-solid fa-user"></i>  <a routerLink="/login">Account</a></li>
+     <li>
+      <a routerLink="/cart">
+        <mat-icon  [matBadge]=cartCount  matBadgePosition="above after" matBadgeColor="accent">shopping_basket</mat-icon>
+      </a>
+    </li>
+        </ul>
+  </nav>
+  <div class="dropdown">
+    <span>Sort By</span>
+    <button (click)="toggleDropdown()" class="dropdown-button">
+      <i class="material-icons">arrow_drop_down</i>
+    </button>
+    <div  *ngIf="dropdownIsOpen" class="dropdown-content">
+      <a href="#" (click)="sortByPrice('high-to-low')">Price: High to Low</a>
+      <a href="#" (click)="sortByPrice('low-to-high')">Price: Low to High</a>
+    </div>
+  </div>
+  
+  
+  <div class="products-container" [ngClass]="{'dropdown-open': dropdownIsOpen}">
+    <app-product-card 
+    *ngFor="let product of products" 
+    [product]="product" 
+    (addingToCart)="addToCart($event)">
+  </app-product-card>
+    </div>
+  <div class="footer">
+
+  </div>
+</div>

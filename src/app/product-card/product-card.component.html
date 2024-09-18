@@ -1,0 +1,7 @@
+<div class="product-card">
+  <img [src]="'assets/images/' + product.image" alt="{{product.name}}">
+  <h3>{{product.name}}</h3>
+  <p>{{product.description}}</p>
+  <p><strong>Price:</strong> {{product.price | currency: 'GBP':'symbol'}}</p>
+  <button mat-button (click)="addToCart()">Add to Cart</button>
+</div>

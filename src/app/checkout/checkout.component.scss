@@ -1,0 +1,91 @@
+
+.header {
+
+height: 20px;
+    background-color: orangered;
+    width: 100%;
+    padding: 10px 0; 
+    top: 0; 
+    overflow: hidden;
+}
+.back-link {
+    position: relative;
+    top: 100px; /* 100px from the top of the page */
+    margin-left: 20px;
+  
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+.form-container {
+    margin-top: 20px;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 100px;
+
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 20px;
+  }
+  
+  label {
+    width: 150px; /* Adjust the width to align labels */
+    margin-right: 20px;
+    text-align: right;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+  
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    margin-left: 40%;
+    margin-top: 2%;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #cccccc;
+  }
+  .secure-checkout {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .secure-checkout img {
+    margin-left: 8px; /* Adjust the spacing between the text and image as needed */
+  }
+  

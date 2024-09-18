@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Define the palettes for your theme
+$ecommerce-site-primary: mat-palette($mat-indigo);
+$ecommerce-site-accent: mat-palette($mat-pink, A200, A100, A400);
+$ecommerce-site-warn: mat-palette($mat-red);
+
+$ecommerce-site-theme: mat-light-theme($ecommerce-site-primary, $ecommerce-site-accent, $ecommerce-site-warn);
+@include angular-material-theme($ecommerce-site-theme);
+
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+:host {
+  display: block;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+
+}
+
+
+
+.footer {
+  width: 100%;
+  height: 80px; /* Height of the footer */
+  background-color: navy;
+  line-height: 60px; /* Vertically center the text */
+  bottom: 0; /* Position it at the bottom */
+}
+nav {
+  padding-left: 20px;
+  position: fixed; /* Ensure the navbar stays at the top */
+  top: 0;
+  background-color: orangered;
+  width: 100%;
+  
+  ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    margin-right: 100px;
+    
+    li {
+      margin-left: 50px;
+      a {
+        text-decoration: none;
+        color: white;
+        padding-left: 10px;
+        font-size: 18px;
+      }
+      i {
+        color: white;
+      }
+    }
+  }
+}

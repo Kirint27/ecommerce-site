@@ -16,6 +16,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore'; // Import Firestore module
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment'; // Make sure to set this up
 
 @NgModule({
   declarations: [
@@ -36,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatBadgeModule,
     HttpClientModule,
-
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // Add this line    AngularFireDatabaseModule, // Firebase Database module
     MatIconModule,
     BrowserAnimationsModule
   ],

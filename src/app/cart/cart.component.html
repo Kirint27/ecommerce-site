@@ -34,9 +34,9 @@
       </div> <!-- Closing this div for the second column -->
    </div>
 
-    
+   
   </div> <!-- Closing box-content div -->
-    <p *ngIf="cartCount > 0" class="total">
+     <p *ngIf="cartCount > 0" class="total">
       Total: {{ getTotalPrice() | currency: 'GBP':'symbol' }}
     </p> <p  *ngIf="cartCount === 0" class="empty">Cart is empty</p> 
 <button (click)="goToCheckout()" [ngClass]="{'disabled-button': cartCount === 0}" 

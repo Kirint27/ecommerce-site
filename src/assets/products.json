@@ -5,14 +5,14 @@
         "name": "Wireless Headphones",
         "description": "High-quality wireless headphones with noise-cancellation.",
         "price": 99.99,
-        "image": "wireless-headphones.jpg"
+        "image": "../headphones.jpg"
       },
       {
         "id": 2,
         "name": "Smartwatch",
         "description": "A smartwatch with health tracking and notifications.",
         "price": 149.99,
-        "image": "../../assets/images/smartwatch.jpg"
+        "image": "../smartwatch.jpg"
       },
       {
         "id": 3,
@@ -26,7 +26,7 @@
         "name": "Bluetooth Speaker",
         "description": "Portable Bluetooth speaker with superior sound quality.",
         "price": 49.99,
-        "image": "bluetooth-speaker.jpg"
+        "image": "../speaker.jpg"
       },
       {
         "id": 5,
@@ -54,21 +54,21 @@
         "name": "Tablet",
         "description": "Lightweight tablet with 10.5-inch display and 64GB storage.",
         "price": 249.99,
-        "image": "tablet.jpg"
+        "image": "../ipad.jpg"
       },
       {
         "id": 9,
         "name": "Fitness Tracker",
         "description": "Track your daily activities and heart rate with this fitness tracker.",
         "price": 39.99,
-        "image": "fitness-tracker.jpg"
+        "image": "../fitness.jpg"
       },
       {
         "id": 10,
         "name": "Digital Camera",
         "description": "Compact digital camera with 20MP resolution and 4K video recording.",
         "price": 499.99,
-        "image": "digital-camera.jpg"
+        "image": "../camera.jpg"
       }
     ]
   }

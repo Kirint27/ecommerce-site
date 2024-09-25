@@ -1,74 +1,69 @@
-<div class="header">
+<div class="header"></div>
 
-</div>
+<a (click)="goBack()" class="back-link"> ← Back </a>
 
-<a (click)="goBack()" class="back-link">
-  ← Back 
-</a>
-
+<!-- Delivery Details Form -->
 <div class="form-container" *ngIf="!showPaymentForm">
   <form [formGroup]="deliveryForm" (ngSubmit)="onDeliverySubmit()">
     <h2>Delivery Details</h2>
-    <div class="form-group">
-      <label for="fullName">Full Name:</label>
-      <input type="text" id="fullName" formControlName="fullName">
+   <div class="form-group">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" formControlName="fullName" />
+    <div *ngIf="deliveryForm.get('fullName').invalid && deliveryForm.get('fullName').touched">
+      <small class="error">Full Name is required.</small>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" formControlName="email">
+  <div class="form-group">
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" formControlName="email" />
+    <div *ngIf="deliveryForm.get('email').invalid && deliveryForm.get('email').touched">
+      <small class="error">A valid Email is required.</small>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label for="phone">Phone Number:</label>
-      <input type="text" id="phone" formControlName="phone">
+  <div class="form-group">
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" formControlName="phone" />
+    <div *ngIf="deliveryForm.get('phone').invalid && deliveryForm.get('phone').touched">
+      <small class="error">Phone Number is required.</small>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label for="address">Delivery Address:</label>
-      <textarea id="address" formControlName="address"></textarea>
+  <div class="form-group">
+    <label for="address">Delivery Address:</label>
+    <textarea id="address" formControlName="address"></textarea>
+    <div *ngIf="deliveryForm.get('address').invalid && deliveryForm.get('address').touched">
+      <small class="error">Delivery Address is required.</small>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label for="postcode">Postcode:</label>
-      <input type="text" id="postcode" formControlName="postcode">
+  <div class="form-group">
+    <label for="postcode">Postcode:</label>
+    <input type="text" id="postcode" formControlName="postcode" />
+    <div *ngIf="deliveryForm.get('postcode').invalid && deliveryForm.get('postcode').touched">
+      <small class="error">Postcode is required.</small>
     </div>
-
-    <button type="submit" class="submit-btn">Continue to Payment</button>
+  </div>
+    <button (click)="onDeliverySubmit()"   type="button" class="submit-btn">Continue to Payment</button>
   </form>
 </div>
 
 <div class="form-container" *ngIf="showPaymentForm">
-  <form [formGroup]="deliveryForm" (ngSubmit)="onSubmit()">
+  <form (submit)="onPaymentSubmit($event)">
     <h2>Payment Details</h2>
-    <p class="secure-checkout">
-      Secure Checkout
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAuklEQVR4nN2UOw7CQAxEXwcF3ADuk5CGi/A5JlCF9DSbGwD9IksGrRBLiJNIG0aaau0ZW2MtJIApsAOOwF15ALbApKv4EqgAH2EJLLpMXqnQGSiAmbII3krrJvtAXETfMQcuWrOxGJy0WaaNYa01kklr3LT50/ThFlJztRg8g+yr7oUMqL9cjo/QaW8jnEHcByb9r9y2738NVhq+MB/CoG4IM32DXIVj955+yOMxcEN/FZnRxP362Y0LDwyAkwkeNKFZAAAAAElFTkSuQmCC" alt="icon">
-    </p>
-    <hr>
-    <div class="form-group">
-    <label for="fullName">Full Name:</label>
-    <input type="text" id="fullName" formControlName="fullName">
-  </div>
-    <div class="form-group">
-      <label for="card">Card Number:</label>
-      <input type="number" id="card" formControlName="card">
+    <p class="secure-checkout">Secure Checkout</p>
+    <hr />
+
+    <ngx-stripe-card (cardChange)="cardDetails = $event; "
+    [options]="cardOptions"></ngx-stripe-card>
+
+
+    <div *ngIf="!cardDetails.valid && cardDetails.touched">
+      <small class="error">Card details are invalid.</small>
     </div>
 
-    <div class="form-group">
-      <label for="cvc">CVC:</label>
-      <input type="password" id="cvc" formControlName="cvc">
-    </div>
-
-    <div class="form-group">
-      <label for="expiry">Expiry Date:</label>
-      <input type="date" id="expiry" formControlName="expiry">
-    </div>
-
-    <button type="submit" class="submit-btn">Complete Order</button>
+    <button type="submit"  class="submit-btn">Complete Order</button>
   </form>
 </div>
-<div>
-  <p>Item costs:</p>
-  
-</div>
+

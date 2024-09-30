@@ -51,8 +51,14 @@ export class WishlistService {
       .doc("wishlist")
       .valueChanges() as Observable<{ items: any[] }>;
   }
-
+removeFromWishlist(id: string): void {
+  const wishlistItems = this.wishlistProducts.value;
+  const index = wishlistItems.findIndex((p: any) => p.id === id);
+  if (index !== -1) {
+    wishlistItems.splice(index, 1);
+    this.wishlistProducts.next(wishlistItems);
+    this.updateWishlistInDb();
 }
 
-
-
+}
+}

@@ -20,4 +20,7 @@ wishlistItems: any[] = [];
     // Fetch the wishlist items.
   }
 
+  removeFromWishlist(id: string): void {
+    this.wishlistService.removeFromWishlist(id);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CartService } from "../services/cart.service";
 import { ProductService } from "../services/product.service";
+import { WishlistService } from "../services/wishlist.service";
 
 @Component({
   selector: "app-home",
@@ -14,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private wishlistService:WishlistService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +35,9 @@ export class HomeComponent implements OnInit {
     this.cartService.addToCart(1, product);
 
     // Example: Add 1 item to cart
+  }
+ addToWishList(product: any): void { // Ensure the method name is correct
+    this.wishlistService.addToWishlist(product); // Call wishlist service to add product
   }
 
   sortByPrice(order: "high-to-low" | "low-to-high"): void {

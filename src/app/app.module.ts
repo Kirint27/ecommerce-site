@@ -8,9 +8,7 @@ import { CartComponent } from "./cart/cart.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { HomeComponent } from "./home/home.component";
 import { ProductCardComponent } from "./product-card/product-card.component";
-import { AuthComponent } from "./auth/auth.component";
-import { LoginComponent } from "./auth/login/login.component";
-import { LoginFormComponent } from "./auth/login/login-form/login-form.component";
+
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatIconModule } from "@angular/material";
@@ -20,8 +18,8 @@ import { AngularFirestoreModule } from "@angular/fire/firestore"; // Import Fire
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { environment } from "../environments/environment";
 import { ElectronicsComponent } from './electronics/electronics.component';
-import { ToysGamesComponent } from './toys-games/toys-games.component'; // Make sure to set this up
 import { NgxStripeModule } from 'ngx-stripe';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +29,9 @@ import { NgxStripeModule } from 'ngx-stripe';
     CheckoutComponent,
     HomeComponent,
     ProductCardComponent,
-    AuthComponent,
-    LoginComponent,
-    LoginFormComponent,
+ 
 ElectronicsComponent,
-ToysGamesComponent  ],
+WishlistComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,0 +1,22 @@
+@import '../product-card/product-card.component.scss';
+
+h2{
+    margin-left: 40%;
+    margin-top: 2%;
+}
+.wishlist-item {
+
+
+    margin-bottom: 20px;
+  
+}
+.button-container {
+    display: flex;
+    justify-content: flex-start; // Align buttons horizontally
+    gap: 30px; // Space between the buttons
+    margin-top: 10px;
+button {
+width: 100px; // Set the width to match the icon size
+height: 36px; // Set the height to match the icon size
+}
+}

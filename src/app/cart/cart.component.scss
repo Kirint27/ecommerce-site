@@ -1,121 +1,136 @@
 h2 {
   color: black;
-  margin-top: 150px;
+  margin-top: 50px;
+  margin-bottom: 20px;
   margin-left: 40%;
-  font-size: 40px;
+  font-size: 30px;
 }
-
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures the wrapper takes at least the full height of the viewport */
+  min-height: 110vh; /* Ensures the wrapper takes at least the full height of the viewport */
 }
+.back-link {
+  position: relative;
+  top: 50px; /* 100px from the top of the page */
+  margin-left: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 
 .item-box {
-  display: flex;
-  width: 800px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
   flex: 1;
-  height: fit-content;
-  border: 1px solid black; /* 1px black border */
-  padding: 20px; /* Optional padding inside the box */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  margin-left: 20%;
-  margin-bottom: 20px; /* Adjust as needed to create space for the footer */
-}
-
-.box-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Corrected typo here */
-  flex: 1; /* Allows this section to expand and fill available space */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .cart-item {
-  margin-top: 50px;
-  background-color: rgb(237, 236, 236);
-  width: 300px;
-  margin-left: 10%;
-  height: 400px;
-}
-
-.back-link {
-  position: relative;
-  top: 100px; /* 100px from the top of the page */
-  margin-left: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-button {
-  margin-top: 40px;
-  padding: 10px 20px;
-  background-color: #007bff; /* Button background color */
-  color: white; /* Button text color */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-img {
-  width: 98%;
-  height: 200px;
-  margin-top: 10px;
-  padding-left: 2px;
-}
-
-.counter {
   display: flex;
   align-items: center;
-  margin-top: 10px;
-}
+  margin-bottom: 20px;
 
-.counter button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin: 0 5px;
-}
-
-.counter .quantity {
-  width: 30px;
-  text-align: center;
-  font-size: 1rem;
-}
-
-.bottom-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  margin-top: auto; /* Pushes the button to the bottom */
-  margin-left: 30%;
-  border: none;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    background-color: #0056b3;
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
-  &.disabled-button {
-    background-color: grey;
-    cursor: not-allowed;
-    opacity: 0.5; /* Makes it look faded */
+  h3 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+
+  p {
+    margin: 8px 0;
+  }
+
+  .counter {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    .quantity {
+      width: 40px;
+      text-align: center;
+      font-size: 1rem;
+      margin: 0 10px;
+    }
   }
 }
 
 .total {
-  font-size: 20px;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-top: auto; 
-; 
+  text-align: right;
 }
 
 .empty {
-  margin-top: 10%;
-  margin-left: 30%;
-  font-size: 20px;
-  font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.bottom-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+  text-align: center;
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #218838;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .item-box {
+    margin-left: 5px;
+    width: 90%;
+
+  }
+.total{
+text-align: center;
+}
+.footer{
+bottom: 0;}
+}
+@media only screen and (max-width: 990px) {
+  .item-box {
+    margin-left: 5px;
+    width: 95%;
+  }
 }

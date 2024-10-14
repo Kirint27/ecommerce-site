@@ -2,7 +2,10 @@
   <nav>
     <ul>
      <li>      <i class="fa-solid fa-user"></i>  <a routerLink="/login">Account</a></li>
-    <li>     <mat-icon [matBadge]="cartCount"><a routerLink="/cart">shopping_basket</a></mat-icon> </li>
+    <li>     <mat-icon [matBadge]="cartService.getCartCount()">
+      <a routerLink="/cart">shopping_cart</a>
+    </mat-icon>
+     </li>
     </ul>
   </nav>
 <a (click)="goBack()" class="back-link">
@@ -14,29 +17,29 @@
 
 <div class="item-box">
   <div *ngIf="cartCount > 0" class="box-content">
-    <div *ngIf="cartCount === 0">
-   
-    </div>
 
-    <div *ngFor="let product of cartProducts" class="cart-item">
+   
+
+
+    <div *ngFor="let item of cartData?.items" class="cart-item">
       <!-- First column: image -->
-      <img [src]="'assets/images/' + product.image" alt="{{product.name}}">
+      <img [src]="'assets/images/' + item.image" alt="{{item.name}}">
 
       <!-- Second column: details and controls -->
       <div>
-        <h3>{{product.name}}</h3>
-        <p><strong>Price:</strong> {{product.price | currency: 'GBP':'symbol' }}</p>
+        <h3>{{item.name}}</h3>
+        <p><strong>Price:</strong> {{item.price | currency: 'GBP':'symbol' }}</p>
         <div class="counter">
-          <button (click)="increaseQuantity(product)">+</button>
-          <div class="quantity">{{product.quantity}}</div>
-          <button (click)="decreaseQuantity(product)">-</button>
+          <button (click)="increaseQuantity(item)">+</button>
+          <div class="quantity">{{item.quantity}}</div>
+          <button (click)="decreaseQuantity(item)">-</button>
         </div>
       </div> <!-- Closing this div for the second column -->
    </div>
 
-    
+   
   </div> <!-- Closing box-content div -->
-    <p *ngIf="cartCount > 0" class="total">
+     <p *ngIf="cartCount > 0" class="total">
       Total: {{ getTotalPrice() | currency: 'GBP':'symbol' }}
     </p> <p  *ngIf="cartCount === 0" class="empty">Cart is empty</p> 
 <button (click)="goToCheckout()" [ngClass]="{'disabled-button': cartCount === 0}" 

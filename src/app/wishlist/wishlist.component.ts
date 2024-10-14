@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 export class WishlistComponent implements OnInit {
   wishlistItems: any[] = [];
 
-  constructor(private wishlistService: WishlistService, private router: Router, private cartService: CartService) {}
+  constructor(private wishlistService: WishlistService, private router: Router, public cartService: CartService) {}
 
   ngOnInit() {
     this.wishlistService.getWishlistItems().subscribe((data: any) => {

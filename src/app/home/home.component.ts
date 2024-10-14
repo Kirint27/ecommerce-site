@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService,
+    public cartService: CartService,
     private wishlistService:WishlistService
   ) {}
 

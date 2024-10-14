@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   cartCount: number = 0;
   totalPrice: number = 0;
   cartData: any;
-  constructor(private router: Router, private cartService: CartService) {}
+  constructor(private router: Router, public cartService: CartService) {}
 
   ngOnInit(): void {
     // Subscribe to cartProducts observable

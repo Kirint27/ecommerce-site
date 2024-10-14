@@ -55,10 +55,12 @@
     <p class="secure-checkout">Secure Checkout</p>
     <hr />
 
-    <ngx-stripe-card (cardChange)="cardDetails = $event; "
-    [options]="cardOptions"></ngx-stripe-card>
+    <ngx-stripe-card (cardChange)="cardDetails = $event; " [options]="cardOptions">
 
 
+    </ngx-stripe-card>
+  
+    
     <div *ngIf="!cardDetails.valid && cardDetails.touched">
       <small class="error">Card details are invalid.</small>
     </div>
@@ -66,4 +68,4 @@
     <button type="submit"  class="submit-btn">Complete Order</button>
   </form>
 </div>
-
+ 

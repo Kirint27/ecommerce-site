@@ -1,52 +1,55 @@
-<div class="page-wrapper" >
+<div class="page-wrapper">
   <nav>
     <ul>
-     <li>      <i class="fa-solid fa-user"></i>  <a routerLink="/login">Account</a></li>
-    <li>     <mat-icon [matBadge]="cartService.getCartCount()">
-      <a routerLink="/cart">shopping_cart</a>
-    </mat-icon>
-     </li>
+  
+      <li>
+        <mat-icon [matBadge]="cartService.getCartCount()">
+          <a routerLink="/cart">shopping_cart</a>
+        </mat-icon>
+      </li>
     </ul>
   </nav>
-<a (click)="goBack()" class="back-link">
-  ← Back 
-</a>
+  <a (click)="goBack()" class="back-link"> ← Continue Shopping </a>
 
+  <h2>Cart Summary</h2>
 
-<h2>Cart</h2>
+  <div class="item-box">
+    <div *ngIf="cartCount > 0" class="box-content">
+      <div *ngFor="let item of cartData?.items" class="cart-item">
+        <!-- First column: image -->
+        <img [src]="'assets/images/' + item.image" alt="{{ item.name }}" />
 
-<div class="item-box">
-  <div *ngIf="cartCount > 0" class="box-content">
-
-   
-
-
-    <div *ngFor="let item of cartData?.items" class="cart-item">
-      <!-- First column: image -->
-      <img [src]="'assets/images/' + item.image" alt="{{item.name}}">
-
-      <!-- Second column: details and controls -->
-      <div>
-        <h3>{{item.name}}</h3>
-        <p><strong>Price:</strong> {{item.price | currency: 'GBP':'symbol' }}</p>
-        <div class="counter">
-          <button (click)="increaseQuantity(item)">+</button>
-          <div class="quantity">{{item.quantity}}</div>
-          <button (click)="decreaseQuantity(item)">-</button>
+        <!-- Second column: details and controls -->
+        <div>
+          <h3>{{ item.name }}</h3>
+          <p>
+            <strong>Price:</strong>
+            {{ item.price | currency : "GBP" : "symbol" }}
+          </p>
+          <div class="counter">
+            <button (click)="increaseQuantity(item)">+</button>
+            <div class="quantity">{{ item.quantity }}</div>
+            <button (click)="decreaseQuantity(item)">-</button>
+          </div>
         </div>
-      </div> <!-- Closing this div for the second column -->
-   </div>
+        <!-- Closing this div for the second column -->
+      </div>
+    </div>
+    <!-- Closing box-content div -->
+    <p *ngIf="cartCount > 0" class="total">
+      Total: {{ getTotalPrice() | currency : "GBP" : "symbol" }}
+    </p>
+    <p *ngIf="cartCount === 0" class="empty">Cart is empty</p>
+    <button
+      (click)="goToCheckout()"
+      [ngClass]="{ 'disabled-button': cartCount === 0 }"
+      [disabled]="cartCount === 0"
+      class="bottom-button"
+    >
+      Continue to delivery details
+    </button>
+  </div>
+  <!-- Closing item-box div -->
 
-   
-  </div> <!-- Closing box-content div -->
-     <p *ngIf="cartCount > 0" class="total">
-      Total: {{ getTotalPrice() | currency: 'GBP':'symbol' }}
-    </p> <p  *ngIf="cartCount === 0" class="empty">Cart is empty</p> 
-<button (click)="goToCheckout()" [ngClass]="{'disabled-button': cartCount === 0}" 
-    [disabled]="cartCount === 0" class="bottom-button">
-    Continue to delivery details
-  </button>
-</div> <!-- Closing item-box div -->
-
-<div class="footer"></div>
+  <div class="footer"></div>
 </div>

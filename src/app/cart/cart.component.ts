@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CartService } from '../services/cart.service';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { CartService } from "../services/cart.service";
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  selector: "app-cart",
+  templateUrl: "./cart.component.html",
+  styleUrls: ["./cart.component.scss"],
 })
 export class CartComponent implements OnInit {
   product: any;
-cartProducts: any[] = [];
-cartCount: number = 0;
-totalPrice: number = 0;
-cartData: any;
-  constructor( private router: Router, private cartService: CartService) { }
+  cartProducts: any[] = [];
+  cartCount: number = 0;
+  totalPrice: number = 0;
+  cartData: any;
+  constructor(private router: Router, private cartService: CartService) {}
 
   ngOnInit(): void {
     // Subscribe to cartProducts observable
@@ -27,29 +27,27 @@ cartData: any;
       this.cartCount = count;
     });
 
-    this.cartService.getCartItems().subscribe(cartData => {
+    this.cartService.getCartItems().subscribe((cartData) => {
       this.cartData = cartData;
     });
-    
   }
 
-goBack() {
-  this.router.navigate([''])
-}
-goToCheckout() {
-  this.router.navigate(['/checkout'])
-}
+  goBack() {
+    this.router.navigate([""]);
+  }
+  goToCheckout() {
+    this.router.navigate(["/checkout"]);
+  }
 
-decreaseQuantity(product: any): void {
-  this.cartService.decreaseQuantity(product);
-}
+  decreaseQuantity(product: any): void {
+    this.cartService.decreaseQuantity(product);
+  }
 
+  increaseQuantity(product: any): void {
+    this.cartService.increaseQuantity(product);
+  }
 
-increaseQuantity(product: any): void {
-  this.cartService.increaseQuantity(product);
-}
-
-getTotalPrice(): number {
-  return this.cartService.getTotalPrice();
-}
+  getTotalPrice(): number {
+    return this.cartService.getTotalPrice();
+  }
 }

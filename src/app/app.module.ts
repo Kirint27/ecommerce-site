@@ -17,7 +17,6 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore"; // Import Firestore module
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { environment } from "../environments/environment";
-import { ElectronicsComponent } from './electronics/electronics.component';
 import { NgxStripeModule } from 'ngx-stripe';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
@@ -30,7 +29,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     HomeComponent,
     ProductCardComponent,
  
-ElectronicsComponent,
+
 WishlistComponent  ],
   imports: [
     BrowserModule,

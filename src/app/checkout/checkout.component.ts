@@ -27,7 +27,7 @@ export class CheckoutComponent implements OnInit {
   stripeForm: FormGroup; // New form group for payment
 
   cardDetails: any = {}; // To hold card details from ngx-stripe-card
-  cardOptions: any; // Add options for the Stripe card component
+
 
 
 
@@ -65,7 +65,20 @@ export class CheckoutComponent implements OnInit {
     }
   }
   
-
+ cardOptions = {
+  hidePostalCode: true,
+  style: {
+    base: {
+      // Customize the styles of the card inputs
+      fontSize: '16px',
+      color: '#000',
+    },
+    invalid: {
+      color: '#fa755a',
+      iconColor: '#fa755a',
+    },
+  },
+};
   onPaymentSubmit(event: Event) {
     console.log('Payment form submit triggered'); // Log to check if function is triggered
     event.preventDefault();

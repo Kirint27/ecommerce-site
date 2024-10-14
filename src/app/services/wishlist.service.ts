@@ -1,33 +1,31 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class WishlistService {
   wishlistProducts = new BehaviorSubject<any[]>([]); // Holds wishlist products
-  wishlistProducts$ = this.wishlistProducts.asObservable(); // Exposes wishlist as an observable
 
-  constructor(private firestore: AngularFirestore) {
-
-  }
+  constructor(private firestore: AngularFirestore) {}
 
   addToWishlist(product: any): void {
     const wishlistProducts = this.wishlistProducts.value; // Current wishlist products
     const index = wishlistProducts.findIndex((p: any) => p.id === product.id); // Check if product is already in wishlist
 
-    if (index === -1) { // If product is not in wishlist
-      wishlistProducts.push(product); // Add product to wishlist
-      this.wishlistProducts.next(wishlistProducts); // Update wishlist state
-      this.updateWishlistInDb(); // Sync wishlist with database
+    if (index === -1) {
+      // If product is not in wishlist
+      wishlistProducts.push(product); 
+      this.wishlistProducts.next(wishlistProducts);
+      this.updateWishlistInDb(); 
     } else {
-      console.log('Product is already in the wishlist');
+      console.log("Product is already in the wishlist");
     }
   }
 
   // Method to update the wishlist in Firestore
-  private updateWishlistInDb(): void {
+   updateWishlistInDb(): void {
     const wishlistItems = this.wishlistProducts.value; // Current value of wishlistProducts
     this.firestore
       .collection("WishlistItems")
@@ -44,21 +42,21 @@ export class WishlistService {
       });
   }
 
-
-  getWishlistItems(): Observable<{ items: any[] }> {
+  getWishlistItems():Observable<any> {
     return this.firestore
-      .collection("wishlistItems")
+      .collection("WishlistItems")
       .doc("wishlist")
-      .valueChanges() as Observable<{ items: any[] }>;
+      .valueChanges()
   }
-removeFromWishlist(id: string): void {
-  const wishlistItems = this.wishlistProducts.value;
-  const index = wishlistItems.findIndex((p: any) => p.id === id);
-  if (index !== -1) {
-    wishlistItems.splice(index, 1);
-    this.wishlistProducts.next(wishlistItems);
-    this.updateWishlistInDb();
-}
-
-}
+      ;
+    
+  removeFromWishlist(id: string): void {
+    const wishlistItems = this.wishlistProducts.value;
+    const index = wishlistItems.findIndex((p: any) => p.id === id);
+    if (index !== -1) {
+      wishlistItems.splice(index, 1);
+      this.wishlistProducts.next(wishlistItems);
+      this.updateWishlistInDb();
+    }
+  }
 }

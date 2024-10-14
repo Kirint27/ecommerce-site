@@ -5,70 +5,70 @@
         "name": "Wireless Headphones",
         "description": "High-quality wireless headphones with noise-cancellation.",
         "price": 99.99,
-        "image": "../headphones.jpg"
+        "image": "./headphones.jpg"
       },
       {
         "id": 2,
         "name": "Smartwatch",
         "description": "A smartwatch with health tracking and notifications.",
         "price": 149.99,
-        "image": "../smartwatch.jpg"
+        "image": "./smartwatch.jpg"
       },
       {
         "id": 3,
         "name": "Laptop",
         "description": "A sleek and powerful laptop with 16GB RAM and 512GB SSD.",
         "price": 899.99,
-        "image": "../laptop.jpg"
+        "image": "./laptop.jpg"
       },
       {
         "id": 4,
         "name": "Bluetooth Speaker",
         "description": "Portable Bluetooth speaker with superior sound quality.",
         "price": 49.99,
-        "image": "../speaker.jpg"
+        "image": "./speaker.jpg"
       },
       {
         "id": 5,
         "name": "4K Monitor",
         "description": "Ultra HD 4K monitor with stunning picture clarity.",
         "price": 299.99,
-        "image": "../4k-monitor.jpg"
+        "image": "./4k-monitor.jpg"
       },
       {
         "id": 6,
         "name": "Gaming Mouse",
         "description": "Ergonomic gaming mouse with customizable RGB lighting.",
         "price": 59.99,
-        "image": "../gaming-mouse.jpg"
+        "image": "./gaming-mouse.jpg"
       },
       {
         "id": 7,
         "name": "Smartphone",
         "description": "Latest model smartphone with an advanced camera system.",
         "price": 799.99,
-        "image": "../smartphone.jpg"
+        "image": "./smartphone.jpg"
       },
       {
         "id": 8,
         "name": "Tablet",
         "description": "Lightweight tablet with 10.5-inch display and 64GB storage.",
         "price": 249.99,
-        "image": "../ipad.jpg"
+        "image": "./ipad.jpg"
       },
       {
         "id": 9,
         "name": "Fitness Tracker",
         "description": "Track your daily activities and heart rate with this fitness tracker.",
         "price": 39.99,
-        "image": "../fitness.jpg"
+        "image": "./fitness.jpg"
       },
       {
         "id": 10,
         "name": "Digital Camera",
         "description": "Compact digital camera with 20MP resolution and 4K video recording.",
         "price": 499.99,
-        "image": "../camera.jpg"
+        "image": "./camera.jpg"
       }
     ]
   }

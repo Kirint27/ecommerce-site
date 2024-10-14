@@ -42,19 +42,24 @@ body {
 }
 nav {
   padding-left: 20px;
-  position: fixed; /* Ensure the navbar stays at the top */
+height: 50px;
+overflow: hidden;
+justify-content: space-between; /* Distribute space between elements */
+
   top: 0;
   background-color: orangered;
   width: 100%;
+  margin-bottom: 10px;
   
   ul {
     display: flex;
     list-style: none;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Align list items to the end */
     margin-right: 100px;
-    
+
+
     li {
-      margin-left: 50px;
+      margin-left: 70px;
       a {
         text-decoration: none;
         color: white;
@@ -66,4 +71,10 @@ nav {
       }
     }
   }
+}
+h4{
+  position: absolute;
+  left: 0;
+  margin-left: 20px;
+
 }

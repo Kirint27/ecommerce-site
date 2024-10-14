@@ -1,0 +1,45 @@
+<div class="content-wrapper">
+  <nav>
+    <h4>Electronics Store</h4>
+    <ul>
+      <li>
+        <i class="fa-solid fa-heart"></i> <a routerLink="/wishlist">Wishlist</a>
+
+      </li>
+      <li>
+        <a routerLink="/cart">
+          <mat-icon
+            [matBadge]="cartService.getCartCount()"
+            matBadgePosition="above after"
+            matBadgeColor="accent"
+            >shopping_basket</mat-icon
+          >
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+<h2>Wishlist</h2>
+<a (click)="goBack()" class="back-link"> ← Continue Shopping </a>
+
+<div *ngFor="let item of wishlistItems" class="wishlist-item product-card">
+  <img [src]="'assets/images/' + item.image" alt="{{ item.name }}" />
+
+  <!-- Second column: details and controls -->
+  <div>
+    <h3>{{ item.name }}</h3>
+    <p>
+      <strong>Price:</strong>
+      {{ item.price | currency : "GBP" : "symbol" }}
+    </p>
+    <div class="button-container">
+      <button mat-button (click)="addToCart(item)">Add to Cart</button>
+      <button (click)="removeFromWishlist(item.id)">
+        Remove from wishlist
+      </button>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="wishlistItems.length === 0" class="empty">Wishlist is empty</p>
+</div>

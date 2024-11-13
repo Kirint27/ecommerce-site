@@ -7,30 +7,27 @@ h2 {
 }
 
 .back-link {
-    position: relative;
-    top: 50px; /* 100px from the top of the page */
-    margin-left: 40px;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
+    top: 10px;
   }
   
 .wishlist-item {
   margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 50px;
 }
 .button-container {
   display: flex;
   justify-content: flex-start; // Align buttons horizontally
   gap: 30px; // Space between the buttons
   margin-top: 10px;
+margin-left: 5px;
   button {
     width: 100px; // Set the width to match the icon size
     height: 36px; // Set the height to match the icon size
   }
 }
 p{
-  margin-left: 40%;
-  margin-top: 20%;
+  margin-top: 10%;
   font-size: 20px;
   font-weight: bold;
 }

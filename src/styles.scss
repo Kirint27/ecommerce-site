@@ -1,5 +1,5 @@
 // Custom Theming for Angular Material
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 @include mat-core();
 
 // Define the palettes for your theme
@@ -7,7 +7,11 @@ $ecommerce-site-primary: mat-palette($mat-indigo);
 $ecommerce-site-accent: mat-palette($mat-pink, A200, A100, A400);
 $ecommerce-site-warn: mat-palette($mat-red);
 
-$ecommerce-site-theme: mat-light-theme($ecommerce-site-primary, $ecommerce-site-accent, $ecommerce-site-warn);
+$ecommerce-site-theme: mat-light-theme(
+  $ecommerce-site-primary,
+  $ecommerce-site-accent,
+  $ecommerce-site-warn
+);
 @include angular-material-theme($ecommerce-site-theme);
 
 @import "~@fortawesome/fontawesome-free/css/all.css";
@@ -20,18 +24,15 @@ $ecommerce-site-theme: mat-light-theme($ecommerce-site-primary, $ecommerce-site-
   overflow: hidden;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
-
-
 }
-
-
 
 .footer {
   width: 100%;
@@ -42,21 +43,20 @@ body {
 }
 nav {
   padding-left: 20px;
-height: 50px;
-overflow: hidden;
-justify-content: space-between; /* Distribute space between elements */
+  height: 50px;
+  overflow: hidden;
+  justify-content: space-between; /* Distribute space between elements */
 
   top: 0;
   background-color: orangered;
   width: 100%;
   margin-bottom: 10px;
-  
+
   ul {
     display: flex;
     list-style: none;
     justify-content: flex-end; /* Align list items to the end */
     margin-right: 100px;
-
 
     li {
       margin-left: 70px;
@@ -72,9 +72,16 @@ justify-content: space-between; /* Distribute space between elements */
     }
   }
 }
-h4{
+h4 {
   position: absolute;
   left: 0;
   margin-left: 20px;
-
+}
+.back-link {
+  position: relative;
+  top: 50px; /* 100px from the top of the page */
+  margin-left: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
 }

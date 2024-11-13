@@ -24,11 +24,14 @@ img {
 
   margin-top: 5px;
 }
+p {
+  text-align: center;
+}
 .button-container {
   display: flex;
   justify-content: center; // Align buttons horizontally
   gap: 10px; // Space between the buttons
-  margin-top: 10px;
+  margin-top: 30px;
 
   i {
     font-size: 24px; // Adjust the font size to define the icon size
@@ -41,7 +44,33 @@ img {
     }
   }
 
+  .wishlist-container {
+    position: relative;  // Ensure this is relative for proper positioning of tooltip
+    display: inline-block;
+  }
+  
+  .wishlist-tooltip {
+    visibility: hidden; /* Initially hidden */
+    width: 120px;
+color: black;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 999;
+    bottom: 86%; /* Position the tooltip above the icon */
+    left: 50%;
+    margin-left: -60px; /* Offset the tooltip horizontally */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
 
+  /* When the user hovers over the heart icon, show the tooltip */
+  &:hover .wishlist-tooltip {
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
+  }
 
   button {
     width: 100px; // Set the width to match the icon size
@@ -59,5 +88,9 @@ img {
     &:hover {
       background-color: darkgreen; // Change background on hover
     }
+    
+    
   }
+ 
+  
 }

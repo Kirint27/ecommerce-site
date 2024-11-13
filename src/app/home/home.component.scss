@@ -69,8 +69,8 @@
 
 .products-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); // 4 equal columns
-  margin: 20px 0 10px 50px;
+  grid-template-columns: repeat(3, 1fr); // 4 equal columns
+  margin: 18px 5px 10px 50px;
   gap: 20px; // Space between grid items
 }
 

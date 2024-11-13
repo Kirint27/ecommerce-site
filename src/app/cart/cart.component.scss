@@ -10,14 +10,6 @@ h2 {
   flex-direction: column;
   min-height: 110vh; /* Ensures the wrapper takes at least the full height of the viewport */
 }
-.back-link {
-  position: relative;
-  top: 50px; /* 100px from the top of the page */
-  margin-left: 40px;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-}
 
 
 .item-box {
